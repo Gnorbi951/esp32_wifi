@@ -16,10 +16,18 @@ void connectToWifi(){
         Serial.print(".");
         delay(100);
     }
+
+    if(Wifi.status() != WL_CONNECTED){
+        Serial.println("Failed :(");
+    } else{
+        Serial.print("Connected!");
+        Serial.println(Wifi.localIP());
+    }
 }
 
 void setup(){
-
+    Serial.begin(9600);
+    connectToWifi();
 }
 
 void loop(){
